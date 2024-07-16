@@ -1,0 +1,21 @@
+- name: create ec2 and s3 
+  hosts: localhost
+  tasks:
+  - name: create ec2 instance
+    amazon.aws.ec2_instance:
+      instance_type: t2.micro
+      security_group: Allow_everything
+      image_id: ami-090252cbe067a9e58
+      name: "{{item}}"
+      tags:
+        Name: "{{item}}"
+
+    loop:
+    - db
+    - backend
+    - frontend
+    register: ec2_instance_info
+
+  - name: output
+    ansible.builtin.debug:
+      msg: "output:{{ec2_instance_info}}"

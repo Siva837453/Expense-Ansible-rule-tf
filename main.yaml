@@ -1,0 +1,12 @@
+- name: configure {{component}}
+  hosts: all
+  connection: local
+  vars_files:
+  - "variable-{{env}}.yaml"
+  become: yes
+  roles:
+  - "{{component}}"
+
+
+
+  #command to execute :  ansible-playbook main.yaml -e component=db
