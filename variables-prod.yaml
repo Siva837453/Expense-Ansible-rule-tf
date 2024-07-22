@@ -2,3 +2,4 @@ login_user: root
 login_password: ExpenseApp@1
 login_host: db-prod.sdevops.cloud
 DB_HOST: db-prod.sdevops.cloud
+BACKEND_API_URL: backend.app-prod.sdevops.cloud
